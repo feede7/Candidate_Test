@@ -3,7 +3,7 @@
 ### Intro
 
 Este problema es más bien conceptual, requiere que propongas una solución a un
-problema espécifico, ideando una solución integral al mismo. La presentación de
+problema especifico, ideando una solución integral al mismo. La presentación de
 la solución puede ser un diagrama en bloques con un resumen explicado, una
 presentación, una descripción en VHDL/Verilog, lo que te sea mas útil para
 contarnos tu idea.
@@ -21,8 +21,8 @@ Se dispone de un System on Chip (SoC) que contiene:
 
 * Una zona de lógica programable (PL)
 * Un controlador de memoria DDR4
-* 4 Interfaces AXI3 de tamaño de burst maximo 256 transacciones y 128 bits de
-ancho maximo por palabra.
+* 4 Interfaces AXI3 de tamaño de burst máximo 256 transacciones y 128 bits de
+ancho máximo por palabra.
 * Una CPU que puede acceder a la memoria DDR4 y la zona de la PL.
 
 Todo esto se esquematiza en la siguiente figura.
