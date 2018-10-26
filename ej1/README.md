@@ -121,7 +121,7 @@ Los test que se proporcionan son los siguientes:
 * loopback_test: Corrobora que los datos enviados sean recibidos
 (loopback entre MISO y MOSI).
 * tx_reg_test: Se prueba la lecto/escritura de los registros.
-* spi_freq_test: Corrobora que la freciencia de SCLK sea de 1MHz
+* spi_freq_test: Corrobora que la frecuencia de SCLK sea de 1MHz
 * endianness_test: Corrobora que los datos sean enviados en orden correcto.
 * sequence_test: Corrobora que se cumpla la waveform.
 
@@ -131,7 +131,7 @@ Los test que se proporcionan son los siguientes:
 ### Gitlab-CI
 
 Al hacer `push` del código al repositorio Gitlab, correrá un Pipeline de
-Gitlab-CI. En el mismo podrá observar el compartamiento de la simulación. 
+Gitlab-CI. En el mismo podrá observar el comportamiento de la simulación. 
 
 ### Standalone
 
