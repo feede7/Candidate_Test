@@ -2,8 +2,10 @@
 
 ## Intro
 
-En nuestro trabajo diario te tocará desarrollar algún core para cumplir cierta función, para eso vas a tener especificaciones que te indiquen comportamientos
-del mismo que debas codificar en VHDL/Verilog y luego alguien mas del equipo desarrollará un testbench que valide el funcionamiento del core. 
+En nuestro trabajo diario te tocará desarrollar algún core para cumplir cierta 
+función, para eso vas a tener especificaciones que te indiquen comportamientos
+del mismo que debas codificar en VHDL/Verilog y luego alguien mas del equipo
+desarrollará un testbench que valide el funcionamiento del core. 
 
 Se evaluará:
 
@@ -81,13 +83,13 @@ contrario, el test fallará:
 | INT               |
 | RX0BF             |
 | RX1BF             |
-| AXI_<signal>      |
+| AXI_signals       |
 | AXI_CLK           |
 | AXI_RESETn        |
 
 Las relaciones de clock que se deben tomar durante el diseño es: 
 * AXI_CLK = 100MHz
-* SCK = 1MHz
+* SCLK = 1MHz
 
 El la trama SPI debe responder a la siguiente waveform:
 
@@ -107,6 +109,11 @@ MOSI +-------+ MSB |     |     |     |     |     |     | LSB +---------+
              +-----+-----+-----+-----+-----+-----+-----+-----+
 MISO +-------+ MSB |     |     |     |     |     |     | LSB +---------+
              +-----+-----+-----+-----+-----+-----+-----+-----+
+
+                                                              +--+
+ INT                                                          |  |
+     +--------------------------------------------------------+  +-----+
+
 ```
 
 Los test que se proporcionan son los siguientes:
@@ -114,7 +121,7 @@ Los test que se proporcionan son los siguientes:
 * loopback_test: Corrobora que los datos enviados sean recibidos
 (loopback entre MISO y MOSI).
 * tx_reg_test: Se prueba la lecto/escritura de los registros.
-* spi_freq_test: Corrobora que la freciencia de SCLK sea de 1MHz
+* spi_freq_test: Corrobora que la frecuencia de SCLK sea de 1MHz
 * endianness_test: Corrobora que los datos sean enviados en orden correcto.
 * sequence_test: Corrobora que se cumpla la waveform.
 
@@ -124,7 +131,7 @@ Los test que se proporcionan son los siguientes:
 ### Gitlab-CI
 
 Al hacer `push` del código al repositorio Gitlab, correrá un Pipeline de
-Gitlab-CI. En el mismo podrá observar el compartamiento de la simulación. 
+Gitlab-CI. En el mismo podrá observar el comportamiento de la simulación. 
 
 ### Standalone
 

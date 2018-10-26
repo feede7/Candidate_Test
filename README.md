@@ -5,32 +5,30 @@
 Bienvenido a este examen que nos ayudará a poder validar distintas habilidades 
 que tengas. Este examen consta de 3 ejercicios que deberán resolverse en el 
 plazo de 1 semana desde que hayas recibido la invitación a este repositorio. 
-La solución del mismo puede enviarse por mail o podés hacer un fork en 
-gitlab.com y entregar el link a tu repositorio con la solución.
+La solución del mismo puede enviarse por mail o podés hacer un fork en un repositorio 
+personal en gitlab.com y entregar el link a tu repositorio con la solución.
 Siempre podés enviar una consulta a los entrevistadores en caso que encuentre 
 algún problema para el desarrollo.
 La metodología propuesta para estos ejercicios sigue nuestros lineamientos de 
-desarrollo con lo que con estos ejercicios podemos evaluar tambien como te 
+desarrollo con lo que con estos ejercicios podemos evaluar también como te 
 desenvolvés con ellos.
-Sin nada mas que agregar, exitos!
+Sin nada mas que agregar, éxitos!
 
 ## Metodología de desarrollo
 
 Es probable que no dispongas de un entorno de desarrollo configurado para poder
 trabajar y validar los ejercicios, pero ningún problema pensamos en ello!. Si
-queres instalarte las herramientas, segui este tutorial [link tutorial], sino 
-podes hacer uso del mecanismo de Continous Integration (CI) que ofrece Gitlab y
+querés instalarte las herramientas, seguí este tutorial [link tutorial], sino 
+podes hacer uso del mecanismo de Continuous Integration (CI) que ofrece Gitlab y
 que ya está configurado para este proyecto. 
 
 Estamos a tu disposición para cualquier consulta.
-
-En primer lugar es importante que hagas un *fork* de este proyecto en un repositorio personal tuyo para empezar a trabajar.
 
 ## Formas de uso
 
 Para poder desarrollar los distintos ejercicios aquí propuestos podes:
 
-* Utilizador gitlab CI para ver el resultado de las corridas en los pipelines. Este sistema corre solo por cada push que hagas al repositorio.
+* Utilizando gitlab CI para ver el resultado de las corridas en los pipelines. Este sistema corre solo por cada push que hagas al repositorio.
 * Usar docker para poder correr los test de forma local.
 * Instalarse todos los paquetes necesarios para correr los test de forma local.
 
@@ -47,11 +45,11 @@ sudo usermod -a -G docker $USER
 ```
 
 Luego, para descargar la imagen que posee todos los programas necesarios para
-relizar los ejercision, ejecutar el siguiente comando:
+realizar los ejercicios, ejecutar el siguiente comando:
 
-`bash
+```bash
 docker pull registry.gitlab.com/hdlteam/candidate-test
-`
+```
 
 Para abrir una terminal con la imagen de docker, ejecutar el script `dockershell.sh`.
 
@@ -63,7 +61,7 @@ instalados los siguiente paquetes:
 * python3
 * ghdl: Simulador de VHDL
 * iverilog: Simulador de Verilog
-* gtkwave: Viasualizador de waveform
+* gtkwave: Visualizador de waveform
 * cocotb: Framework para desarrollar testbenchs en python
 
 Para sistemas basados en debian, estos se deben instalar de la siguiente forma:

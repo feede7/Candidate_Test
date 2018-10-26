@@ -2,13 +2,13 @@
 
 ## Intro
 
-Como caso inverso el ejercicio numero 1, este problema requiere desarollar una herramienta de validación, que tambien siga las mismas especificaciones.
-Los tesbenches serán desarrollados usando python, especificamente la herramienta [CoCoTB](https://github.com/potentialventures/cocotb). Podrás basarte en el testbench del ejercicio numero 1.
+Como caso inverso el ejercicio numero 1, este problema requiere desarrollar una herramienta de validación, que también siga las mismas especificaciones.
+Los testbenchs serán desarrollados usando python, específicamente la herramienta [CoCoTB](https://github.com/potentialventures/cocotb). Podrás basarte en el testbench del ejercicio numero 1.
 
 Del mismo se evaluará:
 
 * Cobertura de casos de test.
-* Estructura de codigo desarrollada para el mismo.
+* Estructura de código desarrollada para el mismo.
 
 ## Objetivos
 
@@ -48,7 +48,7 @@ El código de la misma se encuentra descripto en verilog. Se presenta también u
 
 ### Gitlab-CI
 
-Al hacer `push` del código al repositorio Gitlab, correrá un Pipeline de Gitlab-CI. En el mismo podrá observar el compartamiento de la simulación. 
+Al hacer `push` del código al repositorio Gitlab, correrá un Pipeline de Gitlab-CI. En el mismo podrá observar el comportamiento de la simulación. 
 
 ### Standalone
 
