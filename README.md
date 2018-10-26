@@ -49,9 +49,9 @@ sudo usermod -a -G docker $USER
 Luego, para descargar la imagen que posee todos los programas necesarios para
 relizar los ejercision, ejecutar el siguiente comando:
 
-`bash
+```bash
 docker pull registry.gitlab.com/hdlteam/candidate-test
-`
+```
 
 Para abrir una terminal con la imagen de docker, ejecutar el script `dockershell.sh`.
 

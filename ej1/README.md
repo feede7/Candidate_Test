@@ -2,8 +2,10 @@
 
 ## Intro
 
-En nuestro trabajo diario te tocará desarrollar algún core para cumplir cierta función, para eso vas a tener especificaciones que te indiquen comportamientos
-del mismo que debas codificar en VHDL/Verilog y luego alguien mas del equipo desarrollará un testbench que valide el funcionamiento del core. 
+En nuestro trabajo diario te tocará desarrollar algún core para cumplir cierta 
+función, para eso vas a tener especificaciones que te indiquen comportamientos
+del mismo que debas codificar en VHDL/Verilog y luego alguien mas del equipo
+desarrollará un testbench que valide el funcionamiento del core. 
 
 Se evaluará:
 
@@ -81,13 +83,13 @@ contrario, el test fallará:
 | INT               |
 | RX0BF             |
 | RX1BF             |
-| AXI_<signal>      |
+| AXI_signals       |
 | AXI_CLK           |
 | AXI_RESETn        |
 
 Las relaciones de clock que se deben tomar durante el diseño es: 
 * AXI_CLK = 100MHz
-* SCK = 1MHz
+* SCLK = 1MHz
 
 El la trama SPI debe responder a la siguiente waveform:
 
@@ -107,6 +109,11 @@ MOSI +-------+ MSB |     |     |     |     |     |     | LSB +---------+
              +-----+-----+-----+-----+-----+-----+-----+-----+
 MISO +-------+ MSB |     |     |     |     |     |     | LSB +---------+
              +-----+-----+-----+-----+-----+-----+-----+-----+
+
+                                                              +--+
+ INT                                                          |  |
+     +--------------------------------------------------------+  +-----+
+
 ```
 
 Los test que se proporcionan son los siguientes:
