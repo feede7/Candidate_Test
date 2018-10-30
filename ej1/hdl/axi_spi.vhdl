@@ -54,18 +54,18 @@ end axi_spi;
 
 architecture arch_imp of axi_spi is
 
-    signal WDATA  :    std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0);
-    signal RDATA  :    std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0);
-    signal RADDR  :    std_logic_vector(C_AXI_ADDR_WIDTH -1 downto 0);
-    signal WADDR  :    std_logic_vector(C_AXI_ADDR_WIDTH -1 downto 0);
-    signal WENA   :    std_logic;                           
-    signal RENA   :    std_logic;
+    signal WDATA  	: std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0);
+    signal RDATA  	: std_logic_vector(C_AXI_DATA_WIDTH-1 downto 0);
+    signal RADDR  	: std_logic_vector(C_AXI_ADDR_WIDTH -1 downto 0);
+    signal WADDR  	: std_logic_vector(C_AXI_ADDR_WIDTH -1 downto 0);
+    signal WENA   	: std_logic;                           
+    signal RENA   	: std_logic;
 begin
 
     AXI_REGISTERS: entity work.axi_lite_slave_int
         generic map(
-            C_S_AXI_ADDR_WIDTH     => C_AXI_ADDR_WIDTH,
-            C_S_AXI_DATA_WIDTH     => C_AXI_DATA_WIDTH)
+            C_S_AXI_DATA_WIDTH     => C_AXI_DATA_WIDTH,
+            C_S_AXI_ADDR_WIDTH     => C_AXI_ADDR_WIDTH)
         port map (
             WDATA_O                => WDATA,
             RDATA_I                => RDATA,
@@ -94,10 +94,54 @@ begin
             S_AXI_RREADY           => AXI_RREADY
         );    
 
-   
     ---------------------------------------------------------
     -- Intanciar CORE AQUI!
+    
+	--    +-----+                                             +-----+
+	--    |     |                                             |     |
+	--    |     |      +----------------------------+         |     |
+	--    |     |      |       (axi_spi.v/vhdl)     |         |     |
+	--    |     |      |                            |         |     |
+	--    |     |<---->|                            |         |     |
+	--    |     |<---->|                            |         |     |
+	--    |     |<---->|AXI_INTERFACE               |   SPI   |  S  |
+	--    |     |<---->|                            |         |  P  |
+	--    |     |<---->|                       MISO |<--------|  I  |
+	--    | C   |<---->|                       MOSI |-------->|     |
+	--    | P   |      |                       SCK  |-------->|     |
+	--    | U   |      |                       CSn  |-------->|  D  |
+	--    |     |      |                            |         |  E  |
+	--    |     |----->|AXI_CLK                     |         |  V  |
+	--    |     |----->|AXI_RESETn                  |         |     |
+	--    |     |      |                            |         |     |
+	--    |     |<-----|IRQ                         |         |     |
+	--    |     |      |                            |         |     |
+	--    |     |      +----------------------------+         |     |
+	--    |     |                                             |     |
+	--    +-----+                                             +-----+
 
+    INST_SPI: entity work.En_SPI(Arq_SPI)
+    generic map(
+		C_AXI_DATA_WIDTH	=> C_AXI_DATA_WIDTH,
+		C_AXI_ADDR_WIDTH	=> C_AXI_ADDR_WIDTH,
+		FREQ_AXI_CLK		=> 100_000_000, -- AXI_CLK = 100MHz
+		FREQ_SCLK     		=> 1_000_000)	-- SCLK = 1MHz
+    port map(
+		CSn			=> CSn,
+		MOSI		=> MOSI,
+		MISO		=> MISO,
+		SCK			=> SCLK,
+		INT			=> INT,
+		WDATA     	=> WDATA,
+		RDATA     	=> RDATA,
+		WENA      	=> WENA,
+		RENA      	=> RENA,
+		RADDR     	=> RADDR,
+		WADDR     	=> WADDR,
+		AXI_CLK		=> AXI_ACLK,
+		AXI_RESETn	=> AXI_ARESETN
+    );
+    
     ---------------------------------------------------------
 
 end architecture arch_imp;
